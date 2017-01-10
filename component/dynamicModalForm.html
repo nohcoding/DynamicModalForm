@@ -1,0 +1,8 @@
+<form name="dynamicForm">
+    <div ng-repeat="field in form.fields" ng-if="$index === form.currentIndex">
+        <label>{{field.name}}</label>
+        <input type="{{field.type}}" ng-maxlength="{{field.maxlength}}" ng-minlength="{{field.minlength}}" name="{{field.name}}" id="{{field.name}}" ng-required="{{field.required}}" ng-model="form.data[field.name]">
+    </div>
+    <button ng-click="form.next()" ng-disabled="dynamicForm.$invalid" ng-if="form.itemsLegth > form.currentIndex">Next</button>
+    <button ng-click="form.finish()" ng-disabled="dynamicForm.$invalid" ng-if="form.itemsLegth == form.currentIndex">Finish</button>
+</form>
