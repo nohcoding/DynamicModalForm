@@ -27,7 +27,7 @@
     function activate(){
         $timeout(function (){
             vm.data = createData(vm.fields);
-            vm.itemsLength = vm.field.length;
+            vm.itemsLength = vm.fields.length - 1;
         },1);
     }
     
