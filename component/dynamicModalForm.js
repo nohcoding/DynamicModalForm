@@ -13,7 +13,7 @@
     };
 
     vm.finish = function finish(){
-      vm.defaultAction(vm.data);
+      vm.defaultAction({data:vm.data});
     };
 
     function createData(fields) {
@@ -41,7 +41,7 @@
     bindToController: true,
     bindings: {
       fields: '=',
-      defaultAction: '='
+      defaultAction: '&'
     }
   }); 
   
