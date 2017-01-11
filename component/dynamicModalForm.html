@@ -1,8 +1,19 @@
-<form name="dynamicForm">
-    <div ng-repeat="field in form.fields" ng-if="$index === form.currentIndex">
-        <label>{{field.name}}</label>
-        <input type="{{field.type}}" ng-maxlength="{{field.maxlength}}" ng-minlength="{{field.minlength}}" name="{{field.name}}" id="{{field.name}}" ng-required="{{field.required}}" ng-model="form.data[field.name]">
-    </div>
-    <button ng-click="form.next()" ng-disabled="dynamicForm.$invalid" ng-if="form.itemsLength > form.currentIndex">Next</button>
-    <button ng-click="form.finish()" ng-disabled="dynamicForm.$invalid" ng-if="form.itemsLength === form.currentIndex">Finish</button>
-</form>
+<div class="container">
+    <form name="dynamicForm">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div ng-repeat="field in form.fields" ng-if="$index === form.currentIndex" class="form-group" 
+                    ng-class="{'has-error': dynamicForm['{{field.name}}'].$invalid && dynamicForm['{{field.name}}'].$touched}">
+                    <label for="{{field.name}}">{{field.name}}</label>
+                    <input type="{{field.type}}" class="form-control" ng-maxlength="{{field.maxlength}}" ng-minlength="{{field.minlength}}" name="{{field.name}}" id="{{field.name}}" ng-required="{{field.required}}" ng-model="form.data[field.name]">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <button class="pull-right btn btn-primary" ng-click="form.next()" ng-disabled="dynamicForm.$invalid" ng-if="form.itemsLength > form.currentIndex">Next</button>
+                <button class="pull-right btn btn-primary" ng-click="form.finish()" ng-disabled="dynamicForm.$invalid" ng-if="form.itemsLength === form.currentIndex">Finish</button>
+            </div>
+        </div>
+    </form>
+</div>

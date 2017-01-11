@@ -13,7 +13,7 @@
     };
 
     vm.finish = function finish(){
-      console.log(vm.data);
+      vm.defaultAction(vm.data);
     };
 
     function createData(fields) {
@@ -38,8 +38,10 @@
     templateUrl: './component/dynamicModalForm.html',
     controller: ['$timeout', DynamicModalFormController],
     controllerAs: 'form',
+    bindToController: true,
     bindings: {
-      fields: '='
+      fields: '=',
+      defaultAction: '='
     }
   }); 
   
